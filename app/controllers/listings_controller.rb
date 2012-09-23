@@ -1,4 +1,12 @@
 class ListingsController < ApplicationController
-  def new 
-  end 
+
+  def index
+  end
+
+  def search
+  end
+
+  def new
+    render :layout => 'landing'
+  end
 end
