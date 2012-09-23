@@ -1,0 +1,59 @@
+<div class="header">
+  <h1 class="center big-header">Finding good tenants is hard</h1>
+</div>
+
+<div class='search-container'>
+  <h2 class='subtitle'>
+    Easily fill your listing today.
+  </h2>
+
+<%= form_tag "search", :class => "form-horizontal field-container" do  %> 
+  <div class="control-group">
+  <%= label_tag :type_of_rental, "Type of Rental", :class =>"control-label"%>
+     <div class="controls">
+      <%= select_tag "type_of_rental", "<option>Apartment</option><option>Condo</option><option>Duplex</option><option>House</option>".html_safe %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= label_tag :monthly_rent, "Monthly Rent", :class =>"control-label" %> 
+    <div class="controls">
+      <%= text_field_tag :monthly_rent %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= label_tag :deposit, "Deposit Required", :class =>"control-label" %>
+      <div class="controls">
+        <%= text_field_tag :deposit, nil, :placeholder => "1st Month Rent"%>
+      </div>
+    </div>
+
+  <div class="control-group">
+    <%= label_tag :number_of_bedroom, "Number of Bedroom", :class =>"control-label" %>
+      <div class="controls">
+        <%= text_field_tag :number_of_bedroom %>
+      </div>
+    </div>
+
+    <div class="control-group">
+    <%= label_tag :number_of_bathrooms, "Number of Bathrooms", :class =>"control-label" %>
+      <div class="controls">
+        <%= text_field_tag :number_of_bathrooms %>
+      </div>
+    </div>
+
+  <div class="control-group">
+    <%= label_tag :square_feet, "Total Square Feet", :class =>"control-label" %>
+      <div class="controls">
+        <%= text_field_tag :square_feet %>
+      </div>
+    </div>
+
+     <div class="control-group">
+    <%= label_tag :length_of_lease, "Length of Lease", :class =>"control-label" %>
+      <div class="controls">
+        <%= text_field_tag :length_of_lease %>
+      </div>
+    </div>
+ <% end %>

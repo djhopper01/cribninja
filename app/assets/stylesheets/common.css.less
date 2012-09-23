@@ -1,0 +1,168 @@
+/* Color palette (from dark to light)
+
+    #0F2D40
+    #194759
+    #296B73 (base)
+    #3E8C84
+    #D8F2F0
+
+*/
+
+@import "twitter/bootstrap/reset";
+@import "twitter/bootstrap/variables";
+@import "overrides/variables";                 // Your own variable overrides.
+@import "twitter/bootstrap/mixins";
+@import "overrides/mixins";                    // Your own mixin.
+@import "twitter/bootstrap/scaffolding";
+@import "twitter/bootstrap/grid";
+@import "twitter/bootstrap/layouts";
+@import "twitter/bootstrap/type";
+@import "twitter/bootstrap/code";
+@import "twitter/bootstrap/forms";
+@import "twitter/bootstrap/tables";
+@import "twitter/bootstrap/sprites";
+@import "twitter/bootstrap/dropdowns";
+@import "twitter/bootstrap/wells";
+@import "twitter/bootstrap/component-animations";
+@import "twitter/bootstrap/close";
+@import "twitter/bootstrap/buttons";
+@import "twitter/bootstrap/button-groups";
+@import "twitter/bootstrap/alerts";
+@import "twitter/bootstrap/navs";
+@import "twitter/bootstrap/navbar";
+@import "twitter/bootstrap/breadcrumbs";
+@import "twitter/bootstrap/pagination";
+@import "twitter/bootstrap/pager";
+@import "twitter/bootstrap/modals";
+@import "twitter/bootstrap/tooltip";
+@import "twitter/bootstrap/popovers";
+@import "twitter/bootstrap/thumbnails";
+@import "twitter/bootstrap/labels-badges";
+@import "twitter/bootstrap/progress-bars";
+@import "twitter/bootstrap/accordion";
+@import "twitter/bootstrap/carousel";
+@import "twitter/bootstrap/hero-unit";
+@import "twitter/bootstrap/utilities";
+
+/* Bootstrap Overrides */
+
+body > .navbar .brand {
+  font-family: 'Racing Sans One', cursive;
+  padding-right: 0;
+  padding-left: 0;
+  margin-left: 20px;
+  float: left;
+  font-weight: bold;
+  color: #ccc;
+  -webkit-transition: all .2s linear;
+     -moz-transition: all .2s linear;
+          transition: all .2s linear;
+}
+
+body > .navbar .brand:hover {
+  text-decoration: none;
+  color: #296B73;
+}
+
+.btn-xlarge {
+  padding: 10px 30px;
+  font-size: 16px;
+  line-height: normal;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+body {
+  background: url(/assets/outdoor.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+/* Generic */
+.center {
+  text-align: center;
+}
+
+/* Main Nav */
+.nav.main-nav {
+  margin-left: 32px;
+}
+
+.main-nav > li > a {
+  font-weight: bold;
+}
+
+.main-nav-container > .btn {
+  .border-radius(0px);
+  position: absolute;
+  margin-top: 0;
+  top: -2px;
+  right: 0;
+  height: 40px;
+  line-height: 40px;
+  font-weight: bold;
+}
+
+/* Main Container */
+
+.main-container {
+  padding-top: 60px;
+}
+
+.header {
+  text-shadow: 0 0 10px rgba(0,0,0,1);
+  color: white;
+  margin-top: 86px;
+}
+
+/* Search */
+.big-header {
+  font-size: 64px;
+}
+
+.subtitle {
+  color: white;
+  text-shadow: 0 0 10px rgba(0,0,0,1);
+  margin-left: 14px;
+  margin-bottom: 0;
+}
+
+.search-container {
+  margin-top: 86px;
+}
+
+.search-box {
+  background: rgba(0,0,0, 0.5);
+  .border-radius(5px);
+  padding: 7px;
+}
+
+.search-box form {
+  margin-bottom: 0;
+}
+
+.search-box .add-on {
+  padding: 12px;
+  font-size: 24px;
+}
+
+.search-box input {
+  font-size: 32px;
+  padding: 12px;
+  line-height: 38px;
+  width: 154px;
+  margin-right: 4px;
+}
+
+/* Listing Page */
+
+.control-group {
+color: white;
+
+}
+
+.field-container {
+  background-color: rgba(0, 0, 0, .5);
+  padding: 20px;
+}

@@ -3,12 +3,48 @@
 <head>
   <title>Cribs</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <link href='http://fonts.googleapis.com/css?family=Racing+Sans+One' rel='stylesheet' type='text/css'>
+
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container main-nav-container">
+        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to "Campus Cribs", root_path, :class => 'brand' %>
+        <div class="nav-collapse collapse">
+          <ul class="nav main-nav">
+            <li class="">
+              <%= link_to 'Browse', '#' %>
+            </li>
+            <li class="">
+              <%= link_to 'WTF?', '#' %>
+            </li>
+          </ul>
+        </div>
+        <%= link_to 'Post a listing', '#', :class => 'btn btn-primary pull-right' %>
+      </div>
+    </div>
+  </div>
+
+  <div class='container main-container'>
+    <div class='row'>
+      <div class='span12'>
+
+
+        <%= yield %>
+
+
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>
