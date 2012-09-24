@@ -18,7 +18,7 @@
   <div class="control-group">
     <%= label_tag :monthly_rent, "Monthly Rent", :class =>"control-label" %> 
     <div class="controls">
-      <%= text_field_tag :monthly_rent %>
+      <%= text_field_tag :monthly_rent, nil, :placeholder => "$750"%>
     </div>
   </div>
 
@@ -32,28 +32,76 @@
   <div class="control-group">
     <%= label_tag :number_of_bedroom, "Number of Bedroom", :class =>"control-label" %>
       <div class="controls">
-        <%= text_field_tag :number_of_bedroom %>
+        <%= text_field_tag :number_of_bedroom, nil, :placeholder => "3 Bedrooms" %>
       </div>
     </div>
 
     <div class="control-group">
     <%= label_tag :number_of_bathrooms, "Number of Bathrooms", :class =>"control-label" %>
       <div class="controls">
-        <%= text_field_tag :number_of_bathrooms %>
+        <%= text_field_tag :number_of_bathrooms, nil, :placeholder => "2 Bathrooms" %>
       </div>
     </div>
 
   <div class="control-group">
     <%= label_tag :square_feet, "Total Square Feet", :class =>"control-label" %>
       <div class="controls">
-        <%= text_field_tag :square_feet %>
+        <%= text_field_tag :square_feet, nil, :placeholder => "1,200" %>
       </div>
     </div>
 
      <div class="control-group">
     <%= label_tag :length_of_lease, "Length of Lease", :class =>"control-label" %>
       <div class="controls">
-        <%= text_field_tag :length_of_lease %>
+        <%= text_field_tag :length_of_lease, nil, :placeholder =>"9 months" %>
       </div>
     </div>
+
+     <div class="control-group">
+    <%= label_tag :availablitiy, "Availablitiy", :class =>"  control-label" %>
+      <div class="controls">
+        <%= text_field_tag :availablitiy, nil, :class => 'date-picker'%>
+      </div>
+    </div>
+
+  <div class="control-group">
+    <%= label_tag :utilities_inculded, "Utilities Inculded", :class =>"control-label" %>  
+    <div class="controls">
+    <%= label_tag :water, "water", :class =>"checkbox inline" do %>  
+      <%= check_box_tag  'water'%>
+      Water
+    <%end%>
+
+    <%= label_tag :electric, "electric", :class =>"checkbox inline" do %>  
+      <%= check_box_tag  'electric'%>
+      Electric 
+    <%end%>
+
+    <%= label_tag :gas, "gas", :class =>"checkbox inline" do %>  
+      <%= check_box_tag  'gas'%>
+      Gas
+    <%end%>
+
+    </div>
+  </div> 
+<div class="control-group">
+  <%= label_tag :pets, "Pets", :class =>"control-label"%>
+     <div class="controls">
+      <%= select_tag "pets", "<option>Please select</option><option>Cats Only</option><option>Dogs Only</option><option>Both</option>".html_safe %>
+    </div>
+  </div>
+ <div class="control-group">
+  <div class="controls"> 
+    <%= submit_tag "Create my listing", :class =>"btn btn-info"%>
+  </div>
+</div>
+
  <% end %>
+
+ <script type="text/javascript">
+    $(function (){
+        $('.date-picker').datepicker();
+    });
+
+
+ </script>
