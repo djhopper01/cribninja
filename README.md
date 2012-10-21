@@ -1,4 +1,4 @@
-# Campus Cribs?
+# Crib Ninja (cribninja.com)
 
 ### college apartment hunting sucks. we make it better.
 
