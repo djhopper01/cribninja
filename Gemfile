@@ -2,39 +2,25 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.0'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+# gem 'capistrano' # Deploy with Capistrano
 
+gem 'unicorn' # Use unicorn as the web server
 gem 'pg'
 
+gem 'jbuilder' # To use Jbuilder templates for JSON
+gem 'jquery-rails'
+gem 'rails_config' # App settings (API keys, etc.)
 
-# Gems used only for assets and not required
-# in production environments by default.
+gem 'devise' # Authentication
+gem 'omniauth-facebook'
+
 group :assets do
   gem 'less-rails-bootstrap'
-  
-  # gem 'sass-rails',   '~> 3.2.3'
-  # gem 'coffee-rails', '~> 3.2.1'
 
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer'
 
   gem 'uglifier', '>= 1.0.3'
 end
-
-gem 'jquery-rails'
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-gem 'jbuilder'
-
-# Use unicorn as the web server
-gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
 
 group :development do
   gem 'foreman'
@@ -45,6 +31,5 @@ group :test, :development do
 
   gem "factory_girl_rails"
 
-  # To use debugger
-  gem 'ruby-debug19', :require => 'ruby-debug'
+  gem 'ruby-debug19', :require => 'ruby-debug' # To use debugger
 end
