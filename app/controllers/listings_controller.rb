@@ -3,6 +3,8 @@ class ListingsController < ApplicationController
   respond_to :html, :json
 
   def index
+    @listings = Listing.all
+    respond_with @listings
   end
 
   def search

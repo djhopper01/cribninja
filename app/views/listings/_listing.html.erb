@@ -1,0 +1,27 @@
+<div class='span6'>
+  <div id="listing-<%= listing.id %>" class="carousel slide" data-interval='false'>
+    <!-- Carousel items -->
+    <a class='tag'><%= number_to_currency(listing.rent, :precision => 0) %></a>
+    <div class="carousel-inner">
+      <div class="active item">
+        <div class='img-frame'>
+          <%= image_tag 'stock/s1-thumb.jpg' %>
+          <div class='carousel-caption'>
+            <h4>614 South Harrison Street, Fort Wayne IN 46802</h4>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class='img-frame'>
+          <%= image_tag 'stock/s2-thumb.jpg' %>
+          <div class='carousel-caption'>
+            <h4>614 South Harrison Street, Fort Wayne IN 46802</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Carousel nav -->
+    <a class="carousel-control left" href="#listing-1" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#listing-1" data-slide="next">&rsaquo;</a>
+  </div>
+</div>
