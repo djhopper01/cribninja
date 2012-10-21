@@ -19,4 +19,15 @@
 #
 
 class Listing < ActiveRecord::Base
+
+  belongs_to :user
+
+  attr_accessible :rental_type, :rent, :deposit, :number_of_bedrooms,
+    :number_of_bathrooms, :square_feet, :length_of_lease, :length_of_lease_units
+
+
+  def to_s
+    "#{number_of_bedrooms} bedrooms, #{number_of_bathrooms} bathrooms"
+  end
+
 end

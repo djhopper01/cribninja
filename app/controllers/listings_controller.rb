@@ -1,5 +1,7 @@
 class ListingsController < ApplicationController
 
+  respond_to :html, :json
+
   def index
   end
 
@@ -7,6 +9,18 @@ class ListingsController < ApplicationController
   end
 
   def new
-    render :layout => 'landing'
+    @listing = Listing.new
+    respond_with @listing
+  end
+
+  def create
+    @listing = current_user.listings.build params[:listing]
+    @listing.save
+    respond_with @listing
+  end
+
+  def show
+    @listing = Listing.find(params[:id])
+    respond_with @listing
   end
 end

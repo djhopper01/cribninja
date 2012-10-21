@@ -1,107 +1,65 @@
-<div class="header">
-  <h1 class="center big-header">Finding good tenants is hard</h1>
-</div>
 
-<div class='search-container'>
-  <h2 class='subtitle'>
-    Easily fill your listing today.
-  </h2>
+<%= form_for @listing, :html => {:class => "form-horizontal"} do |f| %> 
+  <legend>Add a new apartment listing</legend>
 
-<%= form_tag "search", :class => "form-horizontal field-container" do  %> 
   <div class="control-group">
-  <%= label_tag :type_of_rental, "Type of Rental", :class =>"control-label"%>
+    <%= f.label :rental_type, "Type of Rental", :class =>"control-label"%>
      <div class="controls">
-      <%= select_tag "type_of_rental", "<option>Apartment</option><option>Condo</option><option>Duplex</option><option>House</option>".html_safe %>
+      <%= f.select :rental_type, "<option>Apartment</option><option>Condo</option><option>Duplex</option><option>House</option>".html_safe %>
     </div>
   </div>
 
   <div class="control-group">
-    <%= label_tag :monthly_rent, "Monthly Rent", :class =>"control-label" %> 
+    <%= f.label :rent, "Monthly Rent", :class =>"control-label" %> 
     <div class="controls">
-      <%= text_field_tag :monthly_rent, nil, :placeholder => "$750"%>
+      <%= f.text_field :rent, :placeholder => "$750"%>
     </div>
   </div>
 
   <div class="control-group">
-    <%= label_tag :deposit, "Deposit Required", :class =>"control-label" %>
-      <div class="controls">
-        <%= text_field_tag :deposit, nil, :placeholder => "1st Month Rent"%>
-      </div>
-    </div>
-
-  <div class="control-group">
-    <%= label_tag :number_of_bedroom, "Number of Bedroom", :class =>"control-label" %>
-      <div class="controls">
-        <%= text_field_tag :number_of_bedroom, nil, :placeholder => "3 Bedrooms" %>
-      </div>
-    </div>
-
-    <div class="control-group">
-    <%= label_tag :number_of_bathrooms, "Number of Bathrooms", :class =>"control-label" %>
-      <div class="controls">
-        <%= text_field_tag :number_of_bathrooms, nil, :placeholder => "2 Bathrooms" %>
-      </div>
-    </div>
-
-  <div class="control-group">
-    <%= label_tag :square_feet, "Total Square Feet", :class =>"control-label" %>
-      <div class="controls">
-        <%= text_field_tag :square_feet, nil, :placeholder => "1,200" %>
-      </div>
-    </div>
-
-     <div class="control-group">
-    <%= label_tag :length_of_lease, "Length of Lease", :class =>"control-label" %>
-      <div class="controls">
-        <%= text_field_tag :length_of_lease, nil, :placeholder =>"9 months" %>
-      </div>
-    </div>
-
-     <div class="control-group">
-    <%= label_tag :availablitiy, "Availablitiy", :class =>"  control-label" %>
-      <div class="controls">
-        <%= text_field_tag :availablitiy, nil, :class => 'date-picker'%>
-      </div>
-    </div>
-
-  <div class="control-group">
-    <%= label_tag :utilities_inculded, "Utilities Inculded", :class =>"control-label" %>  
+    <%= f.label :deposit, "Deposit Required", :class =>"control-label" %>
     <div class="controls">
-    <%= label_tag :water, "water", :class =>"checkbox inline" do %>  
-      <%= check_box_tag  'water'%>
-      Water
-    <%end%>
-
-    <%= label_tag :electric, "electric", :class =>"checkbox inline" do %>  
-      <%= check_box_tag  'electric'%>
-      Electric 
-    <%end%>
-
-    <%= label_tag :gas, "gas", :class =>"checkbox inline" do %>  
-      <%= check_box_tag  'gas'%>
-      Gas
-    <%end%>
-
-    </div>
-  </div> 
-<div class="control-group">
-  <%= label_tag :pets, "Pets", :class =>"control-label"%>
-     <div class="controls">
-      <%= select_tag "pets", "<option>Please select</option><option>Cats Only</option><option>Dogs Only</option><option>Both</option>".html_safe %>
+      <%= f.text_field :deposit, :placeholder => "1st Month Rent"%>
     </div>
   </div>
- <div class="control-group">
-  <div class="controls"> 
-    <%= submit_tag "Create my listing", :class =>"btn btn-info"%>
+
+  <div class="control-group">
+    <%= f.label :number_of_bedrooms, "Number of Bedroom", :class =>"control-label" %>
+    <div class="controls">
+      <%= f.text_field :number_of_bedrooms, :placeholder => "3 Bedrooms" %>
+    </div>
   </div>
-</div>
 
- <% end %>
+  <div class="control-group">
+    <%= f.label :number_of_bathrooms, "Number of Bathrooms", :class =>"control-label" %>
+    <div class="controls">
+      <%= f.text_field :number_of_bathrooms, :placeholder => "2 Bathrooms" %>
+    </div>
+  </div>
 
- <script type="text/javascript">
-    $(function (){
-        $('.date-picker').datepicker();
-    });
+  <div class="control-group">
+    <%= f.label :square_feet, "Total Square Feet", :class =>"control-label" %>
+    <div class="controls">
+      <%= f.text_field :square_feet, :placeholder => "1,200" %>
+    </div>
+  </div>
 
+  <div class="control-group">
+    <%= f.label :length_of_lease, "Length of Lease", :class =>"control-label" %>
+    <div class="controls">
+      <%= f.text_field :length_of_lease, :placeholder =>"9 months" %>
+    </div>
+  </div>
 
- </script>
+  <div class='form-actions'>
+    <%= f.submit :class => 'btn btn-primary' %>
+    <%= link_to "Back", :back, :class => 'btn' %>
+  </div>
+
+<% end %>
+
+<script type="text/javascript">
+  $(function (){
+      $('.date-picker').datepicker();
+  });
+</script>
