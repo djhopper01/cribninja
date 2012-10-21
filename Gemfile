@@ -14,6 +14,8 @@ gem 'rails_config' # App settings (API keys, etc.)
 gem 'devise' # Authentication
 gem 'omniauth-facebook'
 
+gem 'annotate'
+
 group :assets do
   gem 'less-rails-bootstrap'
 

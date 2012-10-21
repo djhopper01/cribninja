@@ -28,3 +28,11 @@ Finally, you should be able to start the app:
 ```console
 foreman start
 ```
+
+## Helpful Hints
+
+If you migrate the database, you can update the annotated models:
+
+```console
+bundle exec annotate --exclude tests,fixtures,factories
+```
