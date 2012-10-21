@@ -36,6 +36,10 @@ class User < ActiveRecord::Base
     :provider, :uid,
     :remember_me
 
+  searchable do
+    text :name, :email, :location
+  end
+
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]

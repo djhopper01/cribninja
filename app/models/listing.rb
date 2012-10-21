@@ -25,6 +25,11 @@ class Listing < ActiveRecord::Base
   attr_accessible :rental_type, :rent, :deposit, :number_of_bedrooms,
     :number_of_bathrooms, :square_feet, :length_of_lease, :length_of_lease_units
 
+  searchable do
+    string :rental_type
+
+    integer :rent, :deposit, :number_of_bedrooms, :number_of_bathrooms, :square_feet
+  end
 
   def to_s
     "#{number_of_bedrooms} bedrooms, #{number_of_bathrooms} bathrooms"

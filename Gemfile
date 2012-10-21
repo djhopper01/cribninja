@@ -10,6 +10,7 @@ gem 'pg'
 gem 'jbuilder' # To use Jbuilder templates for JSON
 gem 'jquery-rails'
 gem 'rails_config' # App settings (API keys, etc.)
+gem 'sunspot_rails' # Search engine
 
 gem 'devise' # Authentication
 gem 'omniauth-facebook'
@@ -26,6 +27,8 @@ end
 
 group :development do
   gem 'foreman'
+
+  gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in development
 end
 
 group :test, :development do
