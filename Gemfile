@@ -11,6 +11,7 @@ gem 'jbuilder' # To use Jbuilder templates for JSON
 gem 'jquery-rails'
 gem 'rails_config' # App settings (API keys, etc.)
 gem 'sunspot_rails' # Search engine
+gem 'carrierwave' # Uploads
 
 gem 'devise' # Authentication
 gem 'omniauth-facebook'
