@@ -1,0 +1,39 @@
+<div class='row listings'>
+
+  <div class='span12 search-criteria center'>
+    Searching for
+    <ul class='unstyled criteria'>
+      <% if params[:rent].present? %>
+      <li class='price'>
+        <span class='label label-success label-large'><%= number_to_currency(params[:rent], :precision => 0) %></span>
+      </li>
+      <% end %>
+
+      <% if params[:number_of_bedrooms].present? %>
+      <li class='bedrooms'>
+        <span class='label label-warning label-large'><%= params[:number_of_bedrooms] %> bed</span>
+      </li>
+      <% end %>
+
+      <% if params[:number_of_bathrooms].present? %>
+      <li class='bathrooms'>
+        <span class='label label-warning label-large'><%= params[:number_of_bathrooms] %> bath</span>
+      </li>
+      <% end %>
+
+      <% if params[:zip].present? %>
+      <li class='zip'>
+        <span class='label label-info label-large'><%= params[:zip] %></span>
+      </li>
+      <% end %>
+
+    </ul>
+  </div>
+
+  <% if @listings.any? %>
+    <%= render @listings %>
+  <% else %>
+    No results found.
+  <% end %>
+
+</div>

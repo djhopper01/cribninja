@@ -28,7 +28,14 @@ class Listing < ActiveRecord::Base
   searchable do
     string :rental_type
 
-    integer :rent, :deposit, :number_of_bedrooms, :number_of_bathrooms, :square_feet
+    integer :rent
+    integer :deposit 
+    integer :number_of_bedrooms 
+    integer :number_of_bathrooms
+    integer :square_feet
+
+    time :created_at
+    time :updated_at
   end
 
   def to_s

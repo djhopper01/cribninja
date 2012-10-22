@@ -8,6 +8,16 @@ class ListingsController < ApplicationController
   end
 
   def search
+    search = Listing.search do
+      with(:rent, params[:rent].to_i-250..params[:rent].to_i+250) if params[:rent].present?
+      with(:number_of_bedrooms, params[:number_of_bedrooms]) if params[:number_of_bedrooms].present?
+      with(:number_of_bathrooms, params[:number_of_bathrooms]) if params[:number_of_bathrooms].present?
+
+      order_by :created_at, :desc
+    end
+
+    @listings = search.results
+    respond_with @listings
   end
 
   def new
