@@ -77,6 +77,7 @@
 </div>
 
 <script type="text/javascript">
+  <% session_key_name = Rails.application.config.session_options[:key] %>
   var uploader = new plupload.Uploader({
     runtimes : 'html5',
     url : '#',
@@ -88,7 +89,13 @@
     autostart : true,
     container: "file-container",
     chunk_size: '1mb',
-    unique_names: false
+    unique_names: false,
+    multipart: true,
+    multipart_params: {
+      '_http_accept': 'application/javascript',
+      'authenticity_token' : '<%= form_authenticity_token %>',
+      '<%= session_key_name %>' : encodeURIComponent('<%= u cookies[session_key_name] %>')
+    }
   });
 
   uploader.init();
