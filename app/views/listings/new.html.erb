@@ -1,65 +1,110 @@
+<div class='row'>
 
-<%= form_for @listing, :html => {:class => "form-horizontal"} do |f| %> 
   <legend>Add a new apartment listing</legend>
 
-  <div class="control-group">
-    <%= f.label :rental_type, "Type of Rental", :class =>"control-label"%>
-     <div class="controls">
-      <%= f.select :rental_type, "<option>Apartment</option><option>Condo</option><option>Duplex</option><option>House</option>".html_safe %>
+  <div class='span6'>
+
+    <%= form_for @listing, :html => {:class => "form-horizontal"} do |f| %> 
+
+      <div class="control-group">
+        <%= f.label :rental_type, "Type of Rental", :class =>"control-label"%>
+         <div class="controls">
+          <%= f.select :rental_type, "<option>Apartment</option><option>Condo</option><option>Duplex</option><option>House</option>".html_safe %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :rent, "Monthly Rent", :class =>"control-label" %> 
+        <div class="controls">
+          <%= f.text_field :rent, :placeholder => "$750"%>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :deposit, "Deposit Required", :class =>"control-label" %>
+        <div class="controls">
+          <%= f.text_field :deposit, :placeholder => "1st Month Rent"%>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :number_of_bedrooms, "Number of Bedroom", :class =>"control-label" %>
+        <div class="controls">
+          <%= f.text_field :number_of_bedrooms, :placeholder => "3 Bedrooms" %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :number_of_bathrooms, "Number of Bathrooms", :class =>"control-label" %>
+        <div class="controls">
+          <%= f.text_field :number_of_bathrooms, :placeholder => "2 Bathrooms" %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :square_feet, "Total Square Feet", :class =>"control-label" %>
+        <div class="controls">
+          <%= f.text_field :square_feet, :placeholder => "1,200" %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :length_of_lease, "Length of Lease", :class =>"control-label" %>
+        <div class="controls">
+          <%= f.text_field :length_of_lease, :placeholder =>"9 months" %>
+        </div>
+      </div>
+
+      <div class='form-actions'>
+        <%= f.submit :class => 'btn btn-primary' %>
+        <%= link_to "Back", :back, :class => 'btn' %>
+      </div>
+
+    <% end %>
+  </div>
+
+  <div class='span6'>
+
+    <div id='file-dropper' class='file-dropper file-dropper-large'>
+      Drag and drop pictures here.
     </div>
-  </div>
 
-  <div class="control-group">
-    <%= f.label :rent, "Monthly Rent", :class =>"control-label" %> 
-    <div class="controls">
-      <%= f.text_field :rent, :placeholder => "$750"%>
+    <div id='file-container'>
+
     </div>
-  </div>
 
-  <div class="control-group">
-    <%= f.label :deposit, "Deposit Required", :class =>"control-label" %>
-    <div class="controls">
-      <%= f.text_field :deposit, :placeholder => "1st Month Rent"%>
-    </div>
   </div>
-
-  <div class="control-group">
-    <%= f.label :number_of_bedrooms, "Number of Bedroom", :class =>"control-label" %>
-    <div class="controls">
-      <%= f.text_field :number_of_bedrooms, :placeholder => "3 Bedrooms" %>
-    </div>
-  </div>
-
-  <div class="control-group">
-    <%= f.label :number_of_bathrooms, "Number of Bathrooms", :class =>"control-label" %>
-    <div class="controls">
-      <%= f.text_field :number_of_bathrooms, :placeholder => "2 Bathrooms" %>
-    </div>
-  </div>
-
-  <div class="control-group">
-    <%= f.label :square_feet, "Total Square Feet", :class =>"control-label" %>
-    <div class="controls">
-      <%= f.text_field :square_feet, :placeholder => "1,200" %>
-    </div>
-  </div>
-
-  <div class="control-group">
-    <%= f.label :length_of_lease, "Length of Lease", :class =>"control-label" %>
-    <div class="controls">
-      <%= f.text_field :length_of_lease, :placeholder =>"9 months" %>
-    </div>
-  </div>
-
-  <div class='form-actions'>
-    <%= f.submit :class => 'btn btn-primary' %>
-    <%= link_to "Back", :back, :class => 'btn' %>
-  </div>
-
-<% end %>
+</div>
 
 <script type="text/javascript">
-  $(function (){
-      $('.date-picker').datepicker();
+  var uploader = new plupload.Uploader({
+    runtimes : 'html5',
+    url : '#',
+    max_file_size : '20MB',
+    flash_swf_url : '<%= asset_path 'swf/plupload.flash.swf' %>',
+    silverlight_xap_url : '<%= asset_path 'xap/plupload.silverlight.xap' %>',
+    button_browse_hover : true,
+    drop_element : "file-dropper",
+    autostart : true,
+    container: "file-container",
+    chunk_size: '1mb',
+    unique_names: false
   });
+
+  uploader.init();
+
+  $('#file-dropper')
+    .bind('dragover drop', function(e) {
+      $(this).addClass('hover');
+      e.preventDefault();
+    })
+    .bind('dragleave dragexit', function(e) {
+      $(this).removeClass('hover');
+      e.preventDefault();
+    });
+
 </script>
+
+<%= content_for :javascripts do %>
+  <%= javascript_include_tag "plupload.full" %>
+<% end %>

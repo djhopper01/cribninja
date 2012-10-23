@@ -6,9 +6,11 @@
   <link href='http://fonts.googleapis.com/css?family=Racing+Sans+One' rel='stylesheet' type='text/css'>
 
   <%= javascript_include_tag "application" %>
+  <%= yield :javascripts %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
   <div class='overlay'>
 
     <%= render 'header' %>
@@ -26,5 +28,7 @@
     </div>
 
   </div>
+
+  <%= yield :additional_javascripts %>
 </body>
 </html>
