@@ -18,6 +18,8 @@
 /solr/data/*
 /solr/pids/*
 
+/public/uploads
+
 /config/database.yml
 .rvmrc
 

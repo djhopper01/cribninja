@@ -21,10 +21,12 @@
 class Listing < ActiveRecord::Base
 
   belongs_to :user
-  has_many :photos
+  has_many :photos, :dependent => :destroy
 
   attr_accessible :rental_type, :rent, :deposit, :number_of_bedrooms,
-    :number_of_bathrooms, :square_feet, :length_of_lease, :length_of_lease_units
+    :number_of_bathrooms, :square_feet, 
+    :length_of_lease, :length_of_lease_units,
+    :photo_ids
 
   searchable do
     string :rental_type

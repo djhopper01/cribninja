@@ -1,0 +1,2 @@
+$('#photos-container').append('<%= escape_javascript(render @photo) %>');
+$('form#new_listing').append("<%= escape_javascript(hidden_field_tag 'listing[photo_ids][]', @photo.id) %>")

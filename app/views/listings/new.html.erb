@@ -65,11 +65,13 @@
 
   <div class='span6'>
 
-    <div id='file-dropper' class='file-dropper file-dropper-large'>
-      Drag and drop pictures here.
-    </div>
-
     <div id='file-container'>
+      <div id='file-dropper' class='file-dropper file-dropper-large'>
+        Drag and drop pictures here.
+      </div>
+
+      <div id='photos-container' class='photos photos-uploader'>
+      </div>    
 
     </div>
 
@@ -79,8 +81,8 @@
 <script type="text/javascript">
   <% session_key_name = Rails.application.config.session_options[:key] %>
   var uploader = new plupload.Uploader({
-    runtimes : 'html5',
-    url : '#',
+    runtimes : 'html5,flash,silverlight',
+    url : '<%= photos_path %>',
     max_file_size : '20MB',
     flash_swf_url : '<%= asset_path 'swf/plupload.flash.swf' %>',
     silverlight_xap_url : '<%= asset_path 'xap/plupload.silverlight.xap' %>',
@@ -95,6 +97,15 @@
       '_http_accept': 'application/javascript',
       'authenticity_token' : '<%= form_authenticity_token %>',
       '<%= session_key_name %>' : encodeURIComponent('<%= u cookies[session_key_name] %>')
+    },
+    init: {
+      FileUploaded: function(uploader, file, info) {
+        eval(info["response"]);
+        $('#file-dropper').removeClass('hover');  
+      },
+      FilesAdded: function(uploader, files) {
+        uploader.start();
+      }
     }
   });
 

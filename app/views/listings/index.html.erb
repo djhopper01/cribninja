@@ -3,3 +3,9 @@
   <%= render @listings %>
 
 </div>
+
+<%= content_for :additional_javascripts do %>
+  <script>
+    $('.photo-carousel > div:first-child').addClass('active');
+  </script>
+<% end %>

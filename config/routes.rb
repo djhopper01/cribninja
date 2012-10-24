@@ -6,6 +6,8 @@ Cribs::Application.routes.draw do
 
   resources :welcome
 
+  resources :photos, :only => [:create]
+
   resources :listings do
     collection do
       get 'search'
