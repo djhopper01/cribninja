@@ -12,6 +12,7 @@ gem 'jquery-rails'
 gem 'rails_config' # App settings (API keys, etc.)
 gem 'sunspot_rails' # Search engine
 gem 'carrierwave' # Uploads
+gem 'rmagick'
 
 gem 'devise' # Authentication
 gem 'omniauth-facebook'
