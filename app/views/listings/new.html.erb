@@ -16,43 +16,89 @@
       <div class="control-group">
         <%= f.label :rent, "Monthly Rent", :class =>"control-label" %> 
         <div class="controls">
-          <%= f.text_field :rent, :placeholder => "$750"%>
+          <%= f.text_field :rent, :placeholder => "$750", :class => 'span2' %>
         </div>
       </div>
 
       <div class="control-group">
         <%= f.label :deposit, "Deposit Required", :class =>"control-label" %>
         <div class="controls">
-          <%= f.text_field :deposit, :placeholder => "1st Month Rent"%>
+          <%= f.text_field :deposit, :placeholder => "$750", :class => 'span2' %>
         </div>
       </div>
 
       <div class="control-group">
         <%= f.label :number_of_bedrooms, "Number of Bedroom", :class =>"control-label" %>
         <div class="controls">
-          <%= f.text_field :number_of_bedrooms, :placeholder => "3 Bedrooms" %>
+          <%= f.text_field :number_of_bedrooms, :class => 'span1' %>
         </div>
       </div>
 
       <div class="control-group">
         <%= f.label :number_of_bathrooms, "Number of Bathrooms", :class =>"control-label" %>
         <div class="controls">
-          <%= f.text_field :number_of_bathrooms, :placeholder => "2 Bathrooms" %>
+          <%= f.text_field :number_of_bathrooms, :class => 'span1' %>
         </div>
       </div>
 
       <div class="control-group">
         <%= f.label :square_feet, "Total Square Feet", :class =>"control-label" %>
         <div class="controls">
-          <%= f.text_field :square_feet, :placeholder => "1,200" %>
+          <%= f.text_field :square_feet, :placeholder => "1,200", :class => 'span2' %>
         </div>
       </div>
 
       <div class="control-group">
         <%= f.label :length_of_lease, "Length of Lease", :class =>"control-label" %>
         <div class="controls">
-          <%= f.text_field :length_of_lease, :placeholder =>"9 months" %>
+          <div class='input-append'>
+            <%= f.text_field :length_of_lease, :class => 'span1' %>
+            <span class='add-on'>months</span>
+          </div>
         </div>
+      </div>
+
+      <div class='control-group'>
+        <%= f.label :available_at, "Available", :class => 'control-label' %>
+        <div class='controls'>
+          <%= f.text_field :available_at, :class => 'datepicker' %>
+        </div>
+      </div>
+
+      <div class='control-group'>
+        <%= label_tag :appliances, "Appliances", :class => 'control-label' %>
+        <div class='controls'>
+          <% Listing.appliances.each do |appliance| %>
+            <%= label_tag "listing[#{appliance}]", :class => 'checkbox' do %>
+              <%= f.check_box appliance %>
+              <%= appliance.titleize %>
+            <% end %>
+          <% end %>
+        </div> 
+      </div>
+
+      <div class='control-group'>
+        <%= label_tag :utilities, "Utilities", :class => 'control-label' %>
+        <div class='controls'>
+          <% Listing.utilities.each do |utility| %>
+            <%= label_tag "listing[#{utility}]", :class => 'checkbox' do %>
+              <%= f.check_box utility %>
+              <%= utility.titleize %>
+            <% end %>
+          <% end %>
+        </div> 
+      </div>
+
+      <div class='control-group'>
+        <%= label_tag :pets, "Pets", :class => 'control-label' %>
+        <div class='controls'>
+          <% Listing.pets.each do |pet| %>
+            <%= label_tag "listing[#{pet}]", :class => 'checkbox' do %>
+              <%= f.check_box pet %>
+              <%= pet.titleize %>
+            <% end %>
+          <% end %>
+        </div> 
       </div>
 
       <div class='form-actions'>
@@ -79,6 +125,8 @@
 </div>
 
 <script type="text/javascript">
+  $('.datepicker').datepicker();
+
   <% session_key_name = Rails.application.config.session_options[:key] %>
   var uploader = new plupload.Uploader({
     runtimes : 'html5,flash,silverlight',

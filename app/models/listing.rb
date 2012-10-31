@@ -54,6 +54,18 @@ class Listing < ActiveRecord::Base
     time :updated_at
   end
 
+  def self.utilities
+    %w(electric gas heat water air_conditioning)
+  end
+
+  def self.appliances
+    %w(washer_and_dryer dishwasher microwave refrigerator oven)
+  end
+
+  def self.pets
+    %w(cats dogs)
+  end
+
   def self.rental_types
     %w(Apartment Condo Duplex House)
   end
