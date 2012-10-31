@@ -16,6 +16,19 @@
 #  gps_id                :integer
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
+#  available_at          :date
+#  washer_and_dryer      :boolean
+#  dishwasher            :boolean
+#  microwave             :boolean
+#  refrigerator          :boolean
+#  oven                  :boolean
+#  electric              :boolean
+#  gas                   :boolean
+#  heat                  :boolean
+#  water                 :boolean
+#  air_conditioning      :boolean
+#  cats                  :boolean
+#  dogs                  :boolean
 #
 
 class Listing < ActiveRecord::Base
@@ -39,6 +52,10 @@ class Listing < ActiveRecord::Base
 
     time :created_at
     time :updated_at
+  end
+
+  def self.rental_types
+    %w(Apartment Condo Duplex House)
   end
 
   def to_s

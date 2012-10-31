@@ -9,7 +9,7 @@
       <div class="control-group">
         <%= f.label :rental_type, "Type of Rental", :class =>"control-label"%>
          <div class="controls">
-          <%= f.select :rental_type, "<option>Apartment</option><option>Condo</option><option>Duplex</option><option>House</option>".html_safe %>
+          <%= f.select :rental_type, options_for_select(Listing.rental_types) %>
         </div>
       </div>
 

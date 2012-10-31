@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121022233836) do
+ActiveRecord::Schema.define(:version => 20121031013753) do
 
   create_table "listings", :force => true do |t|
     t.string   "rental_type"
@@ -27,6 +27,19 @@ ActiveRecord::Schema.define(:version => 20121022233836) do
     t.integer  "gps_id"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
+    t.date     "available_at"
+    t.boolean  "washer_and_dryer"
+    t.boolean  "dishwasher"
+    t.boolean  "microwave"
+    t.boolean  "refrigerator"
+    t.boolean  "oven"
+    t.boolean  "electric"
+    t.boolean  "gas"
+    t.boolean  "heat"
+    t.boolean  "water"
+    t.boolean  "air_conditioning"
+    t.boolean  "cats"
+    t.boolean  "dogs"
   end
 
   create_table "photos", :force => true do |t|
