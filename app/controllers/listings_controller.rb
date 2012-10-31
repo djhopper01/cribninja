@@ -17,7 +17,9 @@ class ListingsController < ApplicationController
     end
 
     @listings = search.results
-    respond_with @listings
+    respond_with @listings do |format|
+      format.html { render :index }
+    end
   end
 
   def new

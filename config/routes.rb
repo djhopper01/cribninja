@@ -10,7 +10,7 @@ Cribs::Application.routes.draw do
 
   resources :listings do
     collection do
-      get 'search'
+      post 'search'
     end
   end
 
